@@ -1,0 +1,60 @@
+.init-loader{
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    bottom: 0;
+    transition: 1.5s;
+    .shit{
+        height: 100%;
+        width: 100%;
+        background: var(--logo-color);
+        border-radius: 0 0 0 0;
+        transition: 3s;
+
+    }
+    &.loaded{
+        height: 0vh;
+        .shit{
+            border-radius: 10000% 10000% 0 0;
+        }
+    }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    .nav-item {
+        margin-left: 40px;
+
+        .nav-link {
+            color: var(--navlink-color);
+            padding: 0;
+        }
+    }
+}
+
+.banner {
+    min-height: 100vh;
+
+    .text-sec {
+        padding-top: var(--navbar-height);
+    }
+
+    .parallax-sec {
+        min-height: 100vh;
+        background-image: url("../images/home/banner/background.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        img {
+            width: calc(100% - 13vw);
+            margin-left: auto;
+        }
+    }
+}

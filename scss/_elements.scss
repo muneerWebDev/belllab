@@ -1,0 +1,59 @@
+:root {
+    --logo-color: #1d2d8c;
+    --bg-primary: #3186d2;
+    --navlink-color: #111a50;
+    --head-color: #1e2124;
+    --para-color: #6c6c6c;
+
+    --navbar-height: 0px;
+}
+/* width */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+body {
+    font-family: 'Archivo', sans-serif;
+    font-size: 20px;
+    overflow: hidden;
+    height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display';
+}
+
+h1{
+    font-size: 45px;
+    font-weight: 600;
+}
+.btn{
+    transition: .3s;
+    font-size: 18px;
+
+    &.btn-primary{
+        background: var(--bg-primary);
+        border-radius: 40px;
+        padding: 10px 40px;
+    }
+}
+.logo{
+    font-family: 'Noe Display';
+    font-weight: bolder;
+    color: var(--logo-color);
+    font-size: 32px;
+    transform: translateY(30px);
+}
+
+.h-100vh{
+    height: 100vh !important;
+}
+
+.v-100vh{
+    width: 100vh !important;
+}
