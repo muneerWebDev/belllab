@@ -1,4 +1,64 @@
-.init-loader{
+//animations
+
+@keyframes float-x{
+    0%{
+        transform:  translateX(0);
+    }
+    50%{
+        transform:  translateX(15px);
+    }
+    100%{
+        transform:  translateX(0);
+    }
+
+}
+@keyframes float-y{
+    0%{
+        transform:  translateY(0);
+    }
+    50%{
+        transform:  translateY(10px);
+    }
+    100%{
+        transform:  translateY(0);
+    }
+
+}
+
+@keyframes  float-x-wave{
+    0%{
+        transform:  translateX(0) translateY(0);
+    }
+    25%{
+        transform:  translateX(-20px) translateY(-10px);
+    }
+
+    50%{
+        transform:  translateX(0) translateY(0);
+    }
+
+    75%{
+        transform:  translateX(20px) translateY(-10px);
+    }
+    100%{
+        transform:  translateX(0) translateY(0);
+    }
+}
+
+@keyframes  scaling{
+    0%{
+        transform:  scale(1);
+    }
+
+    50%{
+        transform:  scale(1.3);
+    }
+    100%{
+        transform:  scale(1);
+    }
+}
+
+.init-loader {
     position: fixed;
     z-index: 100;
     width: 100vw;
@@ -6,7 +66,8 @@
     left: 0;
     bottom: 0;
     transition: 1.5s;
-    .shit{
+
+    .shit {
         height: 100%;
         width: 100%;
         background: var(--logo-color);
@@ -14,9 +75,11 @@
         transition: 3s;
 
     }
-    &.loaded{
+
+    &.loaded {
         height: 0vh;
-        .shit{
+
+        .shit {
             border-radius: 10000% 10000% 0 0;
         }
     }
@@ -28,12 +91,34 @@ header {
     left: 0;
     width: 100%;
     z-index: 99;
+    transition: .3s;
     .nav-item {
         margin-left: 40px;
 
         .nav-link {
             color: var(--navlink-color);
             padding: 0;
+        }
+    }
+
+    .wrap{
+        background: transparent;
+        transition: .3s;
+    }
+
+    .navbar {
+        padding: 30px 0;
+        transition: .3s;
+    }
+}
+
+.scrolled{
+    header{
+        .wrap{
+            background: #fff;
+            .navbar{
+                padding: 15px 0;
+            }
         }
     }
 }
@@ -45,16 +130,130 @@ header {
         padding-top: var(--navbar-height);
     }
 
-    .parallax-sec {
+    .parallax-bg {
         min-height: 100vh;
-        background-image: url("../images/home/banner/background.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+        pointer-events: none;
         display: flex;
+
         img {
             width: calc(100% - 13vw);
             margin-left: auto;
+            object-fit: contain;
+            object-position: right;
+        }
+
+        .bg{
+            position: absolute;
+            z-index: -1;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    .parallax-sec {
+        padding-top: var(--navbar-height);
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        &>.row {
+            height: calc(100vh - var(--navbar-height));
+
+            &>div {
+                display: flex;
+                align-self: center;
+            }
+        }
+
+        .window-wall {
+            position: relative;
+            align-self: flex-end;
+
+            img {
+                position: absolute;
+
+                &.main-img {
+                    position: initial;
+                }
+
+                &.secure-icon {
+                    top: -20px;
+                    right: -20px;
+                    animation: float-y 3s infinite;
+                    transition: .3s;
+                    &:hover{
+                        transform: scale(1.2);
+                    }
+                }
+
+                &.user-rect {
+                    top: 70px;
+                    right: -100px;
+                    animation: float-y 4s infinite;
+                }
+
+                &.circle-rect {
+                    top: 70px;
+                    left: -60px;
+                    animation: float-y 5s infinite;
+                }
+            }
+        }
+
+        .collegues {
+            margin-top: -53vh;
+            display: flex;
+
+            align-items: center;
+
+            .main-img-wrap {
+                position: relative;
+                display: inline-block;
+
+                span {
+                    position: absolute;
+                    left: 20%;
+                    top: 12%;
+                    animation: float-x-wave 10s infinite;
+                }
+
+                .main-img{
+                    transition: 2.3s;
+                    animation: float-x 6s infinite;
+                }
+            }
+
+            .papers-wrap {
+                margin-left: auto;
+                span{
+                    display: block;
+                    &:first-child{
+                        margin-left: -18px;
+                        margin-top: 70%;
+                        animation: float-x-wave 13s infinite;
+                    }
+                    
+                    &:last-child{
+                        margin-left: 18%; 
+                        position: relative;
+                        animation: float-x-wave 18s infinite;
+
+                        &::after{
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            position: absolute;
+                            content: '';
+                            left: -12%;
+                            top: -15%;
+                            background: url("../images/home/banner/paper-3-ring.png")center no-repeat;
+                            background-size: contain;
+                            animation: scaling 5s infinite;
+                        }
+                    }
+
+                }
+            }
         }
     }
 }

@@ -14,34 +14,36 @@
         <div class="shit"></div>
     </section>
 
-    <header class="main-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="navbar navbar-expand-sm">
-                        <a class="navbar-brand logo" href="#">Belllab.</a>
-                        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
-                            data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="collapsibleNavId">
-                            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About Us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Our Works</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+    <header class="main-header" data-aos="fade-down" data-aos-delay="1000" data-aos-duration="500">
+        <div class="wrap w-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="navbar navbar-expand-sm">
+                            <a class="navbar-brand logo" href="#">Belllab.</a>
+                            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">About Us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Our Works</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,23 +53,56 @@
         <div class="container h-100">
             <div class="row h-100vh">
 
-                <div class="col-md-4 text-sec h-100">
+                <div class="col-md-4 text-sec h-100 order-2 order-md-1">
                     <div class="row h-100">
                         <div class="col-12 align-self-center">
-                            <h1 class="mb-5">
+                            <h1 class="mb-5" data-aos="fade-down" data-aos-delay="1500" data-aos-duration="900">
                                 Experts in every
                                 aspect of the
                                 product lifecycle
                             </h1>
-                            <a href="" class="btn btn-primary">Start A Project</a>
+                            <a href="" class="btn btn-primary" data-aos="fade-up" data-aos-delay="2300"
+                                data-aos-duration="1100">Start A Project</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="offset-md-1 col-md-7">
-                    <div class="parallax-sec">
-                        <img src="images/home/banner/foreground.png" alt="">
-                        <!-- <img src="images/home/banner/background.png" alt="" class="w-100"> -->
+                <div class="offset-md-1 col-md-7 order-1 order-md-2">
+                    <div class="parallax-bg" data-aos="fade-left" data-aos-delay="1500" data-aos-duration="700">
+                        <img src="images/home/banner/foreground.png" alt="" class="main-g">
+                        <img src="images/home/banner/background.png" alt="" class="w-100 bg">
+                    </div>
+                    <div class="parallax-sec w-100">
+                        <div class="row">
+                            <div class="col-12 d-flex flex-column">
+                                <div class="window-wall parallax-scroll x1" data-aos="fade-left" data-aos-delay="1800"
+                                    data-aos-duration="800">
+                                    <img src="images/home/banner/window.png" alt="" class="img-fluid main-img">
+                                    <img src="images/home/banner/secure-icon.png" alt="" class="img-fluid secure-icon">
+                                    <img src="images/home/banner/circle-rect.png" alt=""
+                                        class="img-fluid circle-rect  parallax-scroll x2">
+                                    <img src="images/home/banner/user-rect.png" alt=""
+                                        class="img-fluid user-rect  parallax-scroll x2">
+                                </div>
+                                <div class="collegues parallax-scroll x15" data-aos="fade-left" data-aos-delay="2100"
+                                    data-aos-duration="900">
+                                    <div class="main-img-wrap">
+                                        <span class="paper-1"><img src="images/home/banner/paper-1.png" alt=""
+                                                class="img-fluid"></span>
+                                        <img src="images/home/banner/collegues.png" alt="" class="img-fluid main-img">
+                                    </div>
+                                    <div class="papers-wrap">
+
+                                        <span class="paper-2"><img src="images/home/banner/paper-2.png" alt=""
+                                                class="img-fluid"></span>
+                                        <span class="paper-3">
+                                            <div class="wrap"><img src="images/home/banner/paper-3.png" alt=""
+                                                    class="img-fluid"></div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -168,6 +203,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
     <script src="js/custom.js"></script>
 </body>
 
