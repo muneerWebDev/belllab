@@ -1,20 +1,31 @@
 :root {
     --logo-color: #1d2d8c;
-    --bg-primary: #3186d2;
+    --bg-primary: var(--logo-color);
     --navlink-color: #111a50;
     --head-color: #1e2124;
     --para-color: #6c6c6c;
-
+    --blue-title: #3186d2;
     --navbar-height: 0px;
+    --containerMargin: 0px;
 }
+
 /* width */
 ::-webkit-scrollbar {
     display: none;
-  }
-  
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+
+    @include media-breakpoint-down(lg) {
+        font-size: 51.62%;
+    }
+}
+
 body {
     font-family: 'Archivo', sans-serif;
-    font-size: 20px;
+    font-size: 2rem;
     overflow: hidden;
     height: 100vh;
 }
@@ -26,33 +37,135 @@ h4,
 h5,
 h6 {
     font-family: 'Playfair Display';
-}
-
-h1{
-    font-size: 45px;
     font-weight: 600;
-}
-.btn{
-    transition: .3s;
-    font-size: 18px;
 
-    &.btn-primary{
-        background: var(--bg-primary);
-        border-radius: 40px;
-        padding: 10px 40px;
+    &.blue-title{
+        color: var(--blue-title);
+        font-family: 'Archivo', sans-serif;
+    }
+
+    &.odd-family{
+        font-family: 'Archivo', sans-serif;
+        font-weight: 500;
     }
 }
-.logo{
+
+h1 {
+    font-size: 4.3rem;
+}
+
+h2 {
+    font-size: 3.5rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+h4{
+    font-size: 1.8rem;
+}
+
+.btn {
+    transition: .3s;
+    font-size: 1.8rem;
+
+    &.btn-primary {
+        background: var(--bg-primary);
+        border-radius: 40px;
+        padding: 1.2rem 4rem;
+        position: relative;
+        -webkit-transition: all .5s ease-Out;
+        transition: all .5s ease-Out;
+        overflow: hidden;
+        z-index: 1;
+        cursor: none;
+
+        &::after {
+            content: '';
+            width: 0%;
+            height: 0%;
+            opacity: 0;
+            line-height: 4rem;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            -webkit-transition: all .5s ease-Out;
+            transition: all .5s ease-Out;
+            top: 2rem;
+            left: 7rem;
+            z-index: -1;
+        }
+
+        &:hover {
+            color: var(--bg-primary);
+
+            &::after {
+                width: 200%;
+                height: 500%;
+                opacity: 1;
+                top: -7rem;
+                left: -7rem;
+            }
+        }
+    }
+
+    &.play-btn {
+        width: 7.8rem;
+        height: 7.8rem;
+        background: #fff;
+        border-radius: 50%;
+        line-height: 7.8rem;
+        text-align: center;
+        transition: .3s;
+        box-shadow: 1px 16px 17px 1px #f8a0b342;
+
+        &::after {
+            content: url(../images/home/banner/play-icon.png);
+            display: block;
+            margin-right: -8px;
+            transform: scale(1.05);
+        }
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 1px 16px 17px 1px #f8a0b36e;
+        }
+    }
+}
+
+.logo {
     font-family: 'Noe Display';
     font-weight: bolder;
     color: var(--logo-color);
-    font-size: 32px;
+    font-size: 3.2rem;
 }
 
-.h-100vh{
+.slick-slide{
+    &:focus{
+        outline: none;
+    }
+}
+
+.h-100vh {
     height: 100vh !important;
 }
 
-.v-100vh{
+.v-100vh {
     width: 100vh !important;
+}
+
+.slider-container-left{
+    padding-left: 15px;
+}
+
+.slider-container-right{
+    padding-right: 15px;
+}
+
+@include media-breakpoint-up(xl){
+    .h-xl-100{
+        height: 100vh !important;
+    }
+
 }
