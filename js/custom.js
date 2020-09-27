@@ -2,6 +2,21 @@ $(document).ready(function () {
 
     AOS.init();
 
+
+    //navtoggle body class
+
+    $(".navbar-toggler").click(function () {
+        $("body").toggleClass("navOpened");
+    });
+
+    $(document).click(function() {
+        $("body").removeClass("navOpened");
+    });
+    
+    $(".navbar-toggler,.mobile-navbar").click(function(event) {
+        event.stopPropagation();
+    });
+
     function dynamicFunctions() {
 
         //getting dimensions
@@ -92,25 +107,24 @@ $(document).ready(function () {
         slidesToScroll: 1,
         prevArrow: $('.arrows-wrap .left'),
         nextArrow: $('.arrows-wrap .right'),
-        responsive: [
-            {
-              breakpoint: 767,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-              }
+        responsive: [{
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
             },
             {
-              breakpoint: 575,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
             }
             // You can unslick at a given breakpoint now by adding:
             // settings: "unslick"
             // instead of a settings object
-          ]
+        ]
     })
 
 });
