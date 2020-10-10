@@ -9,11 +9,11 @@ $(document).ready(function () {
         $("body").toggleClass("navOpened");
     });
 
-    $(document).click(function() {
+    $(document).click(function () {
         $("body").removeClass("navOpened");
     });
-    
-    $(".navbar-toggler,.mobile-navbar").click(function(event) {
+
+    $(".navbar-toggler,.mobile-navbar").click(function (event) {
         event.stopPropagation();
     });
 
@@ -33,13 +33,6 @@ $(document).ready(function () {
             $(".init-loader").addClass("loaded");
         }, 800);
 
-        setTimeout(function () {
-            $("body").css({
-                "overflow": 'auto',
-                "height": "auto"
-            });
-        }, 3000);
-
         //home-banner
         if ($("window").width() > 1450) {
             $(".banner .parallax-bg").css({
@@ -58,12 +51,16 @@ $(document).ready(function () {
 
         $(".slider-container-left").css("margin-left", containerMargin);
         $(".slider-container-right").css("margin-right", containerMargin);
+        $("section.contact").css("margin-left", containerMargin);
 
     }
+
+    developmentCycleSlider();
 
     dynamicFunctions();
     $(window).resize(function () {
         dynamicFunctions();
+        developmentCycleSlider();
     });
 
     //parallax
@@ -101,12 +98,40 @@ $(document).ready(function () {
         });
     });
 
-    $(".services .slider-wrapper").slick({
+    $(".portfolio .slider").slick({
+        autoplay: false,
         infinite: true,
+        autoplaySpeed: 3500,
+        speed: 500,
+        arrows: false,
+        pauseOnHover: false
+    });
+    
+    $(".testimonials .slider-wrapper").slick({  
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        prevArrow: $('.testimonials .arrows-wrap .left'),
+        nextArrow: $('.arrows-wrap .right'),
+        responsive: [{
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+    $(".services .slider-wrapper, .blog-section .blogs-list").slick({
+        infinite: true,
+        autoplay: true,
+        arrows: true,
+        autoplaySpeed: 1500,
+        speed: 300,
         slidesToShow: 3,
         slidesToScroll: 1,
-        prevArrow: $('.arrows-wrap .left'),
-        nextArrow: $('.arrows-wrap .right'),
+        prevArrow: $('.services .arrows-wrap .left'),
+        nextArrow: $('.services .arrows-wrap .right'),
         responsive: [{
                 breakpoint: 767,
                 settings: {
@@ -127,4 +152,43 @@ $(document).ready(function () {
         ]
     })
 
+
+    $(".process-card-wrappers .card").mouseover(function () {
+        var thisIndex = $(this).index();
+        $(".process-card-wrappers .card").removeClass("active");
+        for (var i = 0; i < thisIndex; i++) {
+            $(".process-card-wrappers .card").eq(i).addClass("active");
+        }
+    });
+
 });
+
+function developmentCycleSlider() {
+    if ($(window).width() < 992) {
+        $(".process-card-wrappers").slick({
+            infinite: false,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            arrows: false,
+            responsive: [{
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 575,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        })
+    }
+
+}
