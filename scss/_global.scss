@@ -548,11 +548,13 @@ body {
     overflow-x: hidden;
     padding-top: 0;
 
+    h5{
+        font-weight: 600;
+    }
+
     @include media-breakpoint-down(xs) {
         padding-top: 5rem;
     }
-
-    border-bottom: 1px solid rgba(37, 41, 64, 0.123);
 
     .icon {
         display: flex;
@@ -696,7 +698,6 @@ body {
 .services {
     padding-top: 9.5rem;
     padding-bottom: 12%;
-    border-bottom: 1px solid rgba(37, 41, 64, 0.123);
 
     position: relative;
     overflow: hidden;
@@ -1054,7 +1055,7 @@ body {
                 }
 
                 &:hover {
-                    box-shadow: 10px 16px 65px rgba(128, 145, 194, 0.18);
+                    box-shadow: 10px 16px 65px rgba(128, 145, 194, 0.12);
                     background: #fff;
 
                     &::after {
